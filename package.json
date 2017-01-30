@@ -1,0 +1,15 @@
+{
+  "name": "accountability",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "express": "4.10.2",
+    "bootstrap": "*",
+    "jquery": "*",
+    "mongoose": "*",
+	"d3": "*",
+    "ejs": "*",
+    "jade": "*"
+  }
+}
+
