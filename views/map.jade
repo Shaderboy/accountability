@@ -4,13 +4,14 @@ html
 		title Accountability
 		link(rel="stylesheet" href="/css/map.css")
 		link(rel="stylesheet" href='/bs/bootstrap.min.css')
-		script(src='/jq/jquery.min.js')
 	body
 		.container
 			.row
 				.col-xs-12
-				#tooltip
-				svg#statesvg(width="960" height="600")
+					#tooltip
+					#map-container
+					//svg#statesvg(width="960" height="600")
+		script(src='/jq/jquery.min.js')
 		script(src='/d3/d3.min.js')
 		script(src='/js/senators.js')
 		//script(src='/js/senators_test.js')

@@ -56,29 +56,51 @@
 		
 	uStates.draw = function(id, data, toolTip){		
 		function mouseOver(d){
-			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
+			/*d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 			
 			d3.select("#tooltip").html(toolTip(d.n, data[d.id]))  
 				.style("left", (d3.event.pageX) + "px")     
-				.style("top", (d3.event.pageY - 28) + "px");
+				.style("top", (d3.event.pageY - 28) + "px");*/
 		}
 		
 		function mouseOut(){
-			d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
+			//d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
 		}
-		
+
+		function clicked(d) {
+			/*d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
+			
+			d3.select("#tooltip").html(toolTip(d.n, data[d.id]))  
+				.style("left", (d3.event.pageX) + "px")     
+				.style("top", (d3.event.pageY - 28) + "px");*/
+		}
+
+		var map = d3.selectAll(".state");
+
+		function equalToEventTarget() {
+			return this.attr("class") == d3.event.target.attr("class");
+		}
+
+		d3.select(document).on("click",function(){
+			console.log(d3.event.target.class);
+			var outside = map.filter(equalToEventTarget).empty();
+			console.log("is outside map: " + outside);
+			if (outside) {
+				d3.select("#tooltip").classed("hidden", true);
+			}
+		});
+
 		d3.select(id).selectAll(".state")
 			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
 			.style("fill",function(d){
-				console.log(d.id + ": " + data[d.id]);
 				var score = data[d.id][0]["Muslim Ban"].indexOf("Opposed") != -1;
 				score += data[d.id][1]["Muslim Ban"].indexOf("Opposed") != -1;
-				var demScore = data[d.id][0]["Party"] == "D";
-				demScore += data[d.id][1]["Party"] == "D";
-				return demScore == 0 ? "#dd0000" : demScore == 1 ? "#9900dd" : "#0000dd";
-				//return score == 0 ? "#000000" : score == 1 ? "#999999" : "#ffffff";
+				//var demScore = data[d.id][0]["Party"] == "D";
+				//demScore += data[d.id][1]["Party"] == "D";
+				//return demScore == 0 ? "#dd0000" : demScore == 1 ? "#9900dd" : "#0000dd";
+				return score == 0 ? "#000000" : score == 1 ? "#245839" : "#03e8a5";
 			})
-			.on("mouseover", mouseOver).on("mouseout", mouseOut);
+			.on("mouseover", mouseOver).on("mouseout", mouseOut).on("click", clicked);
 	}
 	this.uStates=uStates;
 })();
