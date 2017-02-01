@@ -69,17 +69,18 @@
 
 		function clicked(d) {
 			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
+			d3.select("#tooltip").style("pointer-events", "auto");
 			
-			console.log((d3.event.pageX - $(".container")[0].getBoundingClientRect().left));
+			/*console.log((d3.event.pageX - $(".container")[0].getBoundingClientRect().left));
 			var side = d3.event.pageX < $(document).width()/2 ? "left" : "right";
 			var altSide = side == "left" ? "right" : "left";
-			var pos = side == "left" ? (d3.event.pageX - $(".container")[0].getBoundingClientRect().left) : (d3.event.pageX - $(".container")[0].getBoundingClientRect().right)
+			var pos = side == "left" ? (d3.event.pageX - $(".container")[0].getBoundingClientRect().left) : (d3.event.pageX - $(".container")[0].getBoundingClientRect().right)*/
 			d3.select("#tooltip").html(toolTip(d.n, data[d.id]))
-				.style("top", $(document).height()/2 + "px");
+				//.style("top",  "px");
 				//.style("left", (d3.event.pageX - ($(document).width() - $("container").)) + "px")     
 				//.style(side, pos + "px")
 				//.style(altSide, 0 + "px")
-				//.style("top", (d3.event.pageY - 28 - $("#statesvg")[0].getBoundingClientRect().top) + "px");
+				.style("top", (d3.event.pageY - 28 - $("#statesvg")[0].getBoundingClientRect().top) + "px");
 		}
 
 		var map = d3.selectAll(".state");
@@ -91,12 +92,22 @@
 		d3.select(document).on("click",function(){
 			console.log($(d3.event.target).attr("class"));
 			//var outside = map.filter(equalToEventTarget).empty();
-			var outside = $(d3.event.target).attr("class") != "state";
+			var outside = $(d3.event.target).attr("class") != "state" && $(d3.event.target).parents("#tooltip") == null;
 			console.log("is outside map: " + outside);
 			if (outside) {
 				d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
-				//d3.select("#tooltip").classed("hidden", true);
+				d3.select("#tooltip").style("pointer-events", "none");
 			}
+		});
+	
+		d3.select("#tooltip").on('mouseleave', function(d){
+			d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
+			d3.select("#tooltip").style("pointer-events", "none");
+		});
+
+		d3.select('#close-tooltip').on("click", function(){
+			d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
+			d3.select("#tooltip").style("pointer-events", "none");
 		});
 
 		d3.select(id).selectAll(".state")

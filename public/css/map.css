@@ -5,7 +5,8 @@
 
 body{
 	background-image: url("../images/background.png");
-	overflow: hidden;
+	background-size: cover cover;
+	background-repeat: no-repeat;
 }
 
 .state{
@@ -28,14 +29,20 @@ body{
 	padding: 20px;             
 	margin: 10px;
 
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 0%);
 	left: 50%;
 
 	text-align: center;
 	color: #cccccc;
 
-	pointer-events: none;         
 	z-index: 2000;
+	opacity: 0;
+}
+
+#close-tooltip{
+	position: absolute;
+	width: 2%;
+	right: 5%;
 }
 
 #tooltip h4{

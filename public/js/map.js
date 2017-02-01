@@ -1,5 +1,5 @@
 function tooltipHtml(n, d){
-	return "<div class='container' id='tooltip-container'><h4>"+n+"</h4><div class='row'>"+
+	return "<div class='container' id='tooltip-container'><img id='close-tooltip' src='images/close.png'><h4>"+n+"</h4><div class='row'>"+
 		"<div class='col-xs-6'><div class='row'><h6>"+(d[0]["First Name"] + " " + d[0]["Last Name"])+"</h6></div><div class='row'><p>"+(d[0]["Muslim Ban"])+"</p></div><div class='row'><p>\""+(d[0]["Statement"])+"\"</p></div><div class='row'><p>"+(d[0]["Local Office Number"])+"</p></div></div>"+
 		"<div class='col-xs-6'><div class='row'><h6>"+(d[1]["First Name"] + " " + d[1]["Last Name"])+"</h6></div><div class='row'><p>"+(d[1]["Muslim Ban"])+"</p></div><div class='row'><p>\""+(d[1]["Statement"])+"\"</p></div><div class='row'><p>"+(d[0]["Local Office Number"])+"</p></div></div>"+
 		"</div></div>";
