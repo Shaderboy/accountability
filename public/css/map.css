@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Work Sans';
+  src: url('http://fonts.googleapis.com/css?family=Work+Sans');
+}
+
+body{
+	background-image: url("../images/background.png");
+	overflow: hidden;
+}
+
 .state{
 	fill: none;
 	stroke: #a9a9a9;
@@ -6,31 +16,47 @@
 .state:hover{
 	fill-opacity:0.5;
 }
-#tooltip {   
-	position: absolute;           
-	text-align: center;
-	padding: 20px;             
-	margin: 10px;
-	font: 12px sans-serif;        
-	background: lightsteelblue;   
-	border: 1px;      
-	border-radius: 2px;           
-	pointer-events: none;         
-}
-#tooltip h4{
-	margin:0;
-	font-size:14px;
-}
+
 #tooltip{
-	background:rgba(0,0,0,0.9);
+	position: absolute;           
+	background: #04233d;   
+	width: 100%;
+
 	border:1px solid grey;
 	border-radius:5px;
-	font-size:12px;
-	width:25%;
-	padding:4px;
-	color:white;
-	opacity:0;
+
+	padding: 20px;             
+	margin: 10px;
+
+	transform: translate(-50%, -50%);
+	left: 50%;
+
+	text-align: center;
+	color: #cccccc;
+
+	pointer-events: none;         
 	z-index: 2000;
+}
+
+#tooltip h4{
+	margin:0;
+	font-size: 1.1vw;
+	font-weight: 700;
+	color: #bababa;
+	padding-bottom: 5%;
+}
+
+#tooltip h6{
+	font-size: .9vw;
+	font-family: "Work Sans";
+	font-weight: 600;        
+	padding-bottom: 3%;
+}
+
+#tooltip p{
+	font-size: .8vw;
+	font-family: "Work Sans";
+	font-weight: 400;        
 }
 
 #tooltip-container{
@@ -38,7 +64,7 @@
 }
 
 #tooltip-container .col-xs-6 .row{
-	padding-top: 5%;
+	padding-top: 1%;
 }
 
 svg-container {
@@ -54,19 +80,4 @@ svg-container {
     position: absolute;
     top: 10px;
     left: 0;
-}
-
-#tooltip table{
-	table-layout:fixed;
-}
-#tooltip tr td{
-	padding:0;
-	margin:0;
-}
-#tooltip tr:nth-child(1) td{
-	width:50%;
-}
-#tooltip tr:nth-child(2) td{
-	width:50%;
-	text-align:center;
 }

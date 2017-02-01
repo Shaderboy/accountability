@@ -1,12 +1,8 @@
 function tooltipHtml(n, d){
-	return "<h4>"+n+"</h4>"+//<table>"+
-		"<div class='container' id='tooltip-container'><div class='row'>"+
-		"<div class='col-xs-6'><div class='row'>"+(d[0]["First Name"] + " " + d[0]["Last Name"])+"</div><div class='row'>"+(d[0]["Muslim Ban"])+"</div><div class='row'>\""+(d[0]["Statement"])+"\"</div><div class='row'>"+(d[0]["Local Office Number"])+"</div></div>"+
-		"<div class='col-xs-6'><div class='row'>"+(d[1]["First Name"] + " " + d[1]["Last Name"])+"</div><div class='row'>"+(d[1]["Muslim Ban"])+"</div><div class='row'>\""+(d[1]["Statement"])+"\"</div><div class='row'>"+(d[0]["Local Office Number"])+"</div></div>"+
+	return "<div class='container' id='tooltip-container'><h4>"+n+"</h4><div class='row'>"+
+		"<div class='col-xs-6'><div class='row'><h6>"+(d[0]["First Name"] + " " + d[0]["Last Name"])+"</h6></div><div class='row'><p>"+(d[0]["Muslim Ban"])+"</p></div><div class='row'><p>\""+(d[0]["Statement"])+"\"</p></div><div class='row'><p>"+(d[0]["Local Office Number"])+"</p></div></div>"+
+		"<div class='col-xs-6'><div class='row'><h6>"+(d[1]["First Name"] + " " + d[1]["Last Name"])+"</h6></div><div class='row'><p>"+(d[1]["Muslim Ban"])+"</p></div><div class='row'><p>\""+(d[1]["Statement"])+"\"</p></div><div class='row'><p>"+(d[0]["Local Office Number"])+"</p></div></div>"+
 		"</div></div>";
-		//"<tr><td>"+(d[0]["First Name"] + " " + d[0]["Last Name"])+"</td></tr><tr><td>"+(d[0]["Muslim Ban"])+"</td><td>"+(d[0]["CIA Director"])+"</td></tr>"+
-		//"<tr><td>"+(d[1]["First Name"] + " " + d[1]["Last Name"])+"</td></tr><tr><td>"+(d[1]["Muslim Ban"])+"</td><td>"+(d[1]["CIA Director"])+"</td></tr>"+
-		//"</table>";
 }
 
 d3.select("div#map-container")

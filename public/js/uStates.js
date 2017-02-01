@@ -68,25 +68,34 @@
 		}
 
 		function clicked(d) {
-			/*d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
+			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 			
-			d3.select("#tooltip").html(toolTip(d.n, data[d.id]))  
-				.style("left", (d3.event.pageX) + "px")     
-				.style("top", (d3.event.pageY - 28) + "px");*/
+			console.log((d3.event.pageX - $(".container")[0].getBoundingClientRect().left));
+			var side = d3.event.pageX < $(document).width()/2 ? "left" : "right";
+			var altSide = side == "left" ? "right" : "left";
+			var pos = side == "left" ? (d3.event.pageX - $(".container")[0].getBoundingClientRect().left) : (d3.event.pageX - $(".container")[0].getBoundingClientRect().right)
+			d3.select("#tooltip").html(toolTip(d.n, data[d.id]))
+				.style("top", $(document).height()/2 + "px");
+				//.style("left", (d3.event.pageX - ($(document).width() - $("container").)) + "px")     
+				//.style(side, pos + "px")
+				//.style(altSide, 0 + "px")
+				//.style("top", (d3.event.pageY - 28 - $("#statesvg")[0].getBoundingClientRect().top) + "px");
 		}
 
 		var map = d3.selectAll(".state");
 
 		function equalToEventTarget() {
-			return this.attr("class") == d3.event.target.attr("class");
+			return $(this).attr("class") == $(d3.event.target).attr("class");
 		}
 
 		d3.select(document).on("click",function(){
-			console.log(d3.event.target.class);
-			var outside = map.filter(equalToEventTarget).empty();
+			console.log($(d3.event.target).attr("class"));
+			//var outside = map.filter(equalToEventTarget).empty();
+			var outside = $(d3.event.target).attr("class") != "state";
 			console.log("is outside map: " + outside);
 			if (outside) {
-				d3.select("#tooltip").classed("hidden", true);
+				d3.select("#tooltip").transition().duration(500).style("opacity", 0);      
+				//d3.select("#tooltip").classed("hidden", true);
 			}
 		});
 
@@ -98,7 +107,8 @@
 				//var demScore = data[d.id][0]["Party"] == "D";
 				//demScore += data[d.id][1]["Party"] == "D";
 				//return demScore == 0 ? "#dd0000" : demScore == 1 ? "#9900dd" : "#0000dd";
-				return score == 0 ? "#000000" : score == 1 ? "#245839" : "#03e8a5";
+				//return score == 0 ? "#000000" : score == 1 ? "#245839" : "#03e8a5";
+				return score == 0 ? "#000000" : score == 1 ? "#04243e" : "#339999";
 			})
 			.on("mouseover", mouseOver).on("mouseout", mouseOut).on("click", clicked);
 	}
