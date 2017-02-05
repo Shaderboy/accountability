@@ -5,10 +5,48 @@ html
 		link(rel="stylesheet" href="/css/map.css")
 		link(rel="stylesheet" href='/bs/bootstrap.min.css')
 	body
-		.container
+		img#background(src="images/background.png")
+		.container-fluid
 			.row
-				.col-xs-12
+				.col-xs-12#header-col
+					#header 
+						h1 The Muslim Ban According to The Senate
+		.container-fluid
+			.row
+				.col-xs-2.col-lg-0
+					#legend
+						#big-screen-legend
+							.row.legend-row
+								img#oppose-icon(src='images/teal_icon.png')
+								p Fully Opposed
+							.row.legend-row
+								img#half-icon(src='images/blue_icon.png')
+								p Split
+							.row.legend-row
+								img#support-icon(src='images/black_icon.png')
+								p Fully Supportive
+						.legend-row#small-screen-legend
+							.row
+								.col-xs-4
+									.row
+										img#oppose-icon.legend-icon(src='images/teal_icon.png')
+									.row
+										p Fully Opposed
+								.col-xs-4
+									.row
+										img#half-icon.legend-icon(src='images/blue_icon.png')
+									.row
+										p Split
+								.col-xs-4
+									.row
+										img#support-icon.legend-icon(src='images/black_icon.png')
+									.row
+										p Fully Supportive
+				.col-xs-12.col-md-8.col-lg-8
 					#tooltip
+						.container
+							img#close-tooltip(src='images/close.png' style='cursor: pointer')
+						#body
 					#map-container
 					//svg#statesvg(width="960" height="600")
 		script(src='/jq/jquery.min.js')
