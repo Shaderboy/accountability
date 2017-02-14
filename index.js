@@ -1,20 +1,6 @@
 var express = require("express");
 var app = express();
-var mongoose = require('mongoose');
 var d3 = require('d3');
-
-mongoose.connect('mongodb://localhost/dataprint');
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function(){
-	console.log('Connected to db!');
-});
-
-var aggregateSchema = mongoose.Schema({
-});
-
-var Aggregate = mongoose.model('Aggregate', aggregateSchema);
 
 app.set('views', __dirname + '/views');
 //app.engine('html', require('ejs').renderFile);

@@ -53,7 +53,8 @@ uStates.draw = function(id, data, toolTip, $) {
 			.style("fill",function(d){
 				var score = data[d.id][0]["Stance"].indexOf("Opposed") != -1;
 				score += data[d.id][1]["Stance"].indexOf("Opposed") != -1;
-				return score == 0 ? "#000000" : score == 1 ? "#04243e" : "#339999";
+				//return score == 0 ? "#000000" : score == 1 ? "#04243e" : "#339999";
+				return score == 0 ? "#000000" : score == 1 ? "#339999" : "#ffffff";
 			})
 			.on("click", clicked);
 };

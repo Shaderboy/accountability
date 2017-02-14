@@ -1,3 +1,20 @@
+@font-face {
+  font-family: Work Sans;
+  src: url('../fonts/WorkSans-Regular.ttf');
+}
+
+p{
+	font-family: Work Sans;
+}
+
+h4{
+	font-family: Work Sans;
+}
+
+h6{
+	font-family: Work Sans;
+}
+
 #background{
 	position: fixed;
 	width: 100%;
@@ -7,40 +24,51 @@
 #header-col{
 	padding: 0;
 	width: 100%;
-	.text-wrapper {
-		color: $color-bg;
-		padding-top: 0;
-	}
 }
 
-body.banmap {
-	.map-wrapper {
-		padding: 0;
-		background: $color-fg linear-gradient(to bottom, #FFF, #BABABA);
-		z-index: 200;
-	}
-	.map-header {
-		background-color: transparent;
-		padding-top: 2.0vw;
-		padding-left: 1em;
-		padding-right: 1em;
-		padding-bottom: 1.0vw;
-		margin-bottom: 1vw;
-		h1{
-			color: $color-bg;
-			font-size: 3.6vw;
-			font-weight: $font-weight-bold;
-			text-align: center;
-		}
-	}
-	.row{
-		margin: 0;
-	}
-	
-	.row > *{
-		padding-left: 0;
-		padding-right: 0x;
-	}
+#header-col .text-wrapper {
+	color: #fff;
+	padding-top: 0;
+}
+
+.map-wrapper {
+	padding: 0;
+	background: #fff linear-gradient(to bottom, #FFF, #BABABA);
+	z-index: 200;
+}
+
+.map-header {
+	background-color: transparent;
+	padding-top: 2.0vw;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 1.0vw;
+	margin-bottom: 1vw;
+}
+
+.map-header > h1{
+	font-family: Work Sans;
+	font-size: 4.2vw;
+	font-weight: 700;
+	text-align: center;
+	color: rgb(5, 42, 72);
+}
+
+.text-wrapper{
+	font-family: Work Sans;
+	font-size: 1.3vw;
+	font-weight: 400;
+	text-align: center;
+	color: rgb(5, 42, 72);
+}
+
+.row{
+	margin: 0;
+}
+
+.row > *{
+	padding-left: 0;
+	padding-right: 0x;
 }
 
 .state{
@@ -50,6 +78,7 @@ body.banmap {
 
 	user-select: none;
 }
+
 .state:hover{
 	fill-opacity:0.5;
 }
@@ -57,11 +86,10 @@ body.banmap {
 #tooltip{
 	position: absolute;           
 	background: #04233d;   
-	width: 120%;
+	width: 80%;
 
 	border:1px solid grey;
 	border-radius:5px;
-	box-shadow: $box-shadow;
 
 	padding: 20px;             
 	margin: 10px;
@@ -74,39 +102,37 @@ body.banmap {
 
 	z-index: 4096 !important;
 	opacity: 0;
+}
 
-	h4{
-		margin:0;
-		font-size: 3.2vw;
-		font-weight: $font-weight-bold;
-		width: 100%;
-	}
+#tooltip h4{
+	margin:0;
+	font-size: 3.2vw;
+	font-weight: 700;
+	width: 100%;
+}
 
-	h6{
-		font-size: 1.5vw;
-		font-weight: 600;        
-		width: 100%;
-		margin-bottom: 0;
-	}
-	.senator-status {
-		text-align: center;
-	}
-	p{
-		font-size: 1.2vw;
-		font-weight: 400;        
-		padding-left: 3%;
-		padding-right: 3%;
-		width: 100%;
-		text-align: left;
-	}
-
+#tooltip h6{
+	font-size: 1.5vw;
+	font-weight: 600;        
+	width: 100%;
+	margin-bottom: 0;
+}
+#tooltip .senator-status {
+	text-align: center;
+}
+#tooltip p{
+	font-size: 1.2vw;
+	font-weight: 400;        
+	padding-left: 3%;
+	padding-right: 3%;
+	width: 100%;
+	text-align: left;
 }
 
 #close-tooltip{
 	position: absolute;
 	right: 10px;
 	top: 0;
-	color: $color-accent1;
 	cursor: pointer;
 	font-size: 1.6em;
 }
@@ -115,17 +141,17 @@ body.banmap {
 	width: 50%;
 }
 
-#map-col{
+/*#map-col{
 	transform: translate(-50%, 0%);
 	left: 50%;
-}
+}*/
 
 .svg-content-responsive {
 	display: inline-block;
 	position: relative;
 	width: 90%;
 	transform: translate(-50%, 0%);
-	left: 70%;
+	left: 60%;
 	margin-top: 1vw;
 	margin-bottom: 3vw;
 }
@@ -138,18 +164,15 @@ body.banmap {
 }
 
 #legend{
-	position: absolute;
+	position: fixed;
 	transform: translate(0%, -50%);
 	top: 50%;
 	left: 0;
 
-	background: $color-fg;
-	box-shadow: $box-shadow;
+	background-color: #fff;
 
-	width: 27%;
-
-	padding-left: 1.6vw;
-	padding-right: 1.6vw;
+	padding-left: 2.8vw;
+	padding-right: 8.6vw;
 	padding-bottom: 3%;
 	z-index: 0;
 }
@@ -176,37 +199,28 @@ body.banmap {
 		display: inline-block;
 		width: 3vw;
 		height: 50px;
-		&#oppose-icon {
-			background-color: $color-accent2;
-		}
-		&#half-icon {
-			background-color: $color-bg;
-		}
-		&#support-icon {
-			background-color: black;
-		}
 }
 
-@include breakpoint(medium) {
+@media screen and (min-width: 992px) and (max-width: 1159px) {
 	#tooltip{
 		margin: 0;
+	}
 
-		h4 {
-			font-size: 4.0vw;
-		}
+	#tooltip h4 {
+		font-size: 4.0vw;
+	}
 
-		h6 {
-			font-size: 1.8vw;
-		}
+	#tooltip h6 {
+		font-size: 1.8vw;
+	}
 
-		p {
-			font-size: 1.6vw;
-		}
+	#tooltip p {
+		font-size: 1.6vw;
 	}
 	
 }
 
-@include breakpoint(small) {
+@media screen and (max-width: 991px) {
 	.svg-content-responsive {
 		width: 95%;
 		position: relative;
@@ -219,17 +233,19 @@ body.banmap {
 		font-size: 1.7em;
 	}
 	#tooltip {	
-    width: 100%;
-		h4 {
-			font-size: 6vw;
-		}
-		h6 {
-			font-size: 3vw;
-		}
-		p {
-			font-size: 2.7vw;
-		}
+		width: 100%;
 	}
+	
+	#tooltip h4 {
+		font-size: 6vw;
+	}
+	#tooltip h6 {
+		font-size: 3vw;
+	}
+	#tooltip p {
+		font-size: 2.7vw;
+	}
+
 	#close-tooltip{
 		font-size: 2em;
 		right: 15px;
@@ -276,7 +292,7 @@ body.banmap {
 	}	
 }
 
-@include breakpoint(xsmall) {
+@media screen and (max-width: 767px) {
 	#tooltip {
 		padding-left: 5px;
 		padding-right: 5px;
